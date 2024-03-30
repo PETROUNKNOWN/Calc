@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assembly-like Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
 </head>
 <body>
-<h1>Assembly-like Calculator</h1>
-<input type="text" id="display" readonly>
-<script>
-    // Function to perform arithmetic operations
-    function calculate(operation, operand1, operand2) {
-        switch (operation) {
-            case 'A': return operand1 + operand2;
-            case 'S': return operand1 - operand2;
-            case 'M': return operand1 * operand2;
-            case 'D': return operand1 / operand2;
-            default: return NaN;
-        }
-    }
-
-    // Function to handle keystrokes
-    function handleKeypress(event) {
-        const key = event.key.toUpperCase(); // Convert key to uppercase for simplicity
-        const display = document.getElementById('display');
-        let currentValue = display.value;
-
-        if (key === 'C') {
-            display.value = ''; // Clear display on 'C' key press
-        } else if (key === '=') {
-            try {
-                display.value = eval(currentValue); // Evaluate expression on '=' key press
-            } catch (error) {
-                display.value = 'Error';
-            }
-        } else if (['A', 'S', 'M', 'D'].includes(key)) {
-            display.value += key; // Append arithmetic operation to display
-        } else if (!isNaN(parseInt(key))) {
-            display.value += key; // Append numbers to display
-        }
-    }
-
-    // Attach keypress event listener to the document
-    document.addEventListener('keypress', handleKeypress);
-</script>
+  <div id="calculator">
+    <!-- <input  id="display" placeholder="calculator" readonly> -->
+    <div id="display"></div>
+    <button id="clear">CLEAR</button>
+    <div id="buttons">
+    <div id="buttons1">
+      <button id="buttonMinus" class="nums">-</button>
+      <button id="button1" class="nums">1</button>
+      <button id="button4" class="nums">4</button>
+      <button id="button7" class="nums">7</button>
+      <button id="buttonDivide" class="nums">/</button>
+    </div>
+    <div id="buttons2">
+      <button id="buttonPlus" class="nums">+</button>
+      <button id="button2" class="nums">2</button>
+      <button id="button5" class="nums">5</button>
+      <button id="button8" class="nums">8</button>
+      <button id="button0" class="nums">0</button>
+    </div>
+    <div id="buttons3">
+      <button id="buttonEquals" class="nums">=</button>
+      <button id="button3" class="nums">3</button>
+      <button id="button6" class="nums">6</button>
+      <button id="button9" class="nums">9</button>
+      <button id="buttonMultiply" class="nums">*</button>
+    </div>
+  </div>
+  </div>
+  <script src="/Calc/script.js"></script>
 </body>
 </html>
